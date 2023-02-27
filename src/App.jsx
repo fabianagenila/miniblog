@@ -12,6 +12,7 @@ import { AuthProvider } from "./context/authContext";
 import { onAuthStateChanged } from "firebase/auth";
 import { useAuthentication } from "./hooks/useAuthentication";
 import { useEffect, useState } from "react";
+import Search from "./pages/Search/Search";
 
 const App = () => {
   const [user, setUser] = useState(undefined);
@@ -38,6 +39,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/search" element={<Search />} />
               <Route
                 path="/login"
                 element={!user ? <Login /> : <Navigate to="/" />}
