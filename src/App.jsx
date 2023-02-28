@@ -13,6 +13,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useAuthentication } from "./hooks/useAuthentication";
 import { useEffect, useState } from "react";
 import Search from "./pages/Search/Search";
+import Post from "./pages/Post/Post";
 
 const App = () => {
   const [user, setUser] = useState(undefined);
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/search" element={<Search />} />
+              <Route path="/posts/:id" element={<Post />} />
               <Route
                 path="/login"
                 element={!user ? <Login /> : <Navigate to="/" />}
