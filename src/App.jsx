@@ -14,6 +14,7 @@ import { useAuthentication } from "./hooks/useAuthentication";
 import { useEffect, useState } from "react";
 import Search from "./pages/Search/Search";
 import Post from "./pages/Post/Post";
+import EditPost from "./pages/EditPost/EditPost";
 
 const App = () => {
   const [user, setUser] = useState(undefined);
@@ -49,6 +50,10 @@ const App = () => {
               <Route
                 path="/register"
                 element={!user ? <Register /> : <Navigate to="/" />}
+              />
+              <Route
+                path="/posts/edit/:id"
+                element={user ? <EditPost /> : <Navigate to="/login" />}
               />
               <Route
                 path="/posts/create"
